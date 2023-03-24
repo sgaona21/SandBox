@@ -1,25 +1,67 @@
 console.log("JS Linked");
 
-function getRandomNumber(upper) {
-  return Math.floor( Math.random() * upper ) + 1;
+/* INSTRUCTIONS
+To run this file, click in the Console below and type: node 3_deck.js 
+If the console isn't visible, click the View menu above and choose Show Console.
+
+You can clear the console by typing `clear` and pressing enter.
+
+If your program is stuck in an infinite loop, you can break out of the program by typing ctrl + C.
+*/
+
+// Note: We've supplied you a basic function that takes an array of elements and shuffles their order in the array. It's a really useful, but somewhat complex algorithm -- look in the teacher's notes for links to an explanation for how it works. You'll use this function to shuffle a deck of cards that you'll create.
+function shuffle(arr) {
+  var j, x, i;
+  for (i = arr.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = arr[i];
+      arr[i] = arr[j];
+      arr[j] = x;
+  }
+  return arr;
 }
 
-const answer = getRandomNumber(100);
-// console.log(`Hint: ${answer}`);
-let attempts = 0;
-document.getElementById("header").innerHTML = `5 tries are UP! YOU SUCK!!!!`
+/* Complete the function createDeck(), which we've started for you below. The goal is to create a multi-dimensional array of 52 elements (52 cards), and return them shuffled when the function is called. To simplify creating the deck use two for loops -- one inside the other -- to build a multidimensional array.
+*/
+// 1. Add a for loop -- to loop through each element in the suites array
+// 2. INSIDE that loop, add another loop that loops through elements in the ranks array.
+// 3. Inside the second, nested loop, create a new array named card, which is composed of a rank and a suite. For example ['King', '♥︎'].
+// 4. Push that card onto the deck array. Once both loops complete running, the deck array will hold 52 elements, and each of those elements are themselves an array.
+// 5. Finally, pass the new deck to the shuffle() function, and return the results.
+var suites = ['♠︎','♣︎','♥︎','♦︎'];
+var ranks = ['Ace','King','Queen','Jack','10','9','8','7','6','5','4', '3','2'];
+var deck = [];
 
-for (let i = 0; i < 5; i++) {
-  let guess = prompt("I am thinking of a number between 1 and 100. What is it?");
-  attempts++;
-  console.log(`Attempts: ${attempts}`)
-  if (guess > answer) {
-    console.log("Lower");
-  } else {
-    console.log("Higher")
-  }
-  if (guess == answer) {
-    document.getElementById("header").innerHTML = `SUCCESS! It took you ${attempts} tries to guess the number ${answer}! WOW!`;
-    break;
+function createSuite(suiteArray, ranksArray, index) {
+  let oneSuite = [];
+  for (let i = 0; i < ranksArray.length; i++) {
+    let card = [];
+    card.push(ranksArray[i], suiteArray[index])
+    oneSuite.push(card);
   };
+  return oneSuite;
 };
+
+let spades = createSuite(suites, ranks, 0);
+let clubs = createSuite(suites, ranks, 1);
+let hearts = createSuite(suites, ranks, 2);
+let diamonds = createSuite(suites, ranks, 3);
+const completeDeck = [...spades, ...clubs, ...hearts, ...diamonds];
+const shuffledDeck = shuffle(completeDeck);
+let text = '';
+for (let i = 0; i < 2; i++) {
+  text += `<p> ${shuffledDeck[i][0]} ${shuffledDeck[i][1]} </p>`
+}
+document.getElementById("header").innerHTML = text;
+console.log(shuffledDeck);
+
+
+
+
+// 6. Call the createDeck() function and store the results in a new variable named myDeck
+
+/* 7. Use a for loop to loop through the deck and list each card in the order the appear in the newly shuffled array. Use the log() method to print out a message like this, once for each card:
+"7 of ♥.︎"
+*/
+
+// Run your code by typing node 3_deck.js in the console below
