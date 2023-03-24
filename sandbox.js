@@ -1,56 +1,48 @@
 console.log("JS Linked");
 
-const questions = [
-  ["What is the capital of Arizona?", "Phoenix"],
-  ["What is the capital of California?", "Sacremento"],
-  ["What is the capital of Texas?", "Austin"]
-];
-
-let correct = 0;
-let answer = '';
-let right = [];
-let wrong = [];
-let rightText = '';
-let wrongText = '';
-
-for (let i = 0; i < questions.length; i++) {
-  answer = prompt(questions[i][0]).toUpperCase();
-  if (answer === questions[i][1].toUpperCase()) {
-    correct++;
-    right.push(questions[i][0]);
-  } else {
-    wrong.push(questions[i][0]);
-  }
+const arizona = {
+  capital: "Phoenix",
+  population: 1500000,
+  political_party: "Republican",
+  confederate: false,
+  cities: ["Tucson", "Oracle", "Chandler", "Douglas"],
+  governer: "deucey"
 };
 
-document.getElementById("header").innerHTML = `You got ${correct} question(s) correct.`
+const texas = {
+  capital: "Austin",
+  population: 3000000,
+  political_party: "Republican",
+  confederate: true,
+  cities: ["Dallas", "Amarillo", "Houston", "San Antonio"]
+};
 
-function summary(array, text) {
-for (let a = 0; a < array.length; a++) {
-    text += `<p> ${a+1}. ${array[a]} </p>`;
-  }
-  return text;
+const texarona = {
+  ...arizona,
+  ...texas
 }
 
-document.getElementById("paragraph").innerHTML = `
-  <h2> You got these questions CORRECT: </h2>
-  ${summary(right, rightText)}
-  <h2> You got these questions WRONG: </h2>
-  ${summary(wrong, wrongText)}
-`
+
+const pets = [
+  {name: "sparky", type: "female", breed: "pug", age: 5, photo: "dogs/dog1.jpg"},
+  {name: "dummy", type: "male", breed: "pitbull", age: 1, photo: "dogs/dog2.jpg"},
+  {name: "ugly", type: "female", breed: "lab", age: 7, photo: "dogs/dog3.jpg"},
+  {name: "timmy", type: "male", breed: "chihuahua", age: 4, photo: "dogs/dog4.jpg"},
+  {name: "lexi", type: "female", breed: "doberman", age: 3, photo: "dogs/dog5.jpg"}
+];
+
+let text = '';
+
+function display(array) {
+for (let i = 0; i < array.length; i++) {
+  text += `<h2>${array[i].name}</h2>
+  <h3> ${array[i].type} | ${array[i].breed}</h3>
+  <p>Age: ${array[i].age}</p>
+  <img src="${array[i].photo}" alt="Australian Shepherd">`;
+}
+};
+
+display(pets);
 
 
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
+document.getElementById("paragraph").innerHTML = text;
