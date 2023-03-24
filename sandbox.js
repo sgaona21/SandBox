@@ -1,18 +1,56 @@
 console.log("JS Linked");
 
-const playlist = [
-  ['So What', 'Miles Davis', '9:04'],
-  ['Respect', 'Aretha Franklin', '2:45'],
-  ['What a Wonderful World', 'Louis Armstrong', '2:21'],
-  ['At Last', 'Ella Fitzgerald', '4:18'],
-  ['Three Little Birds', 'Bob Marley and the Wailers', '3:01'],
-  ['The Way You Look Tonight', 'Frank Sinatra', '3:21']
+const questions = [
+  ["What is the capital of Arizona?", "Phoenix"],
+  ["What is the capital of California?", "Sacremento"],
+  ["What is the capital of Texas?", "Austin"]
 ];
 
-let text = '';
+let correct = 0;
+let answer = '';
+let right = [];
+let wrong = [];
+let rightText = '';
+let wrongText = '';
 
-for (let i = 0; i < playlist.length; i++) {
-  text += `<p> #${i +1} ${playlist[i][0]}, by ${playlist[i][1]} - ${playlist[i][2]}`
+for (let i = 0; i < questions.length; i++) {
+  answer = prompt(questions[i][0]).toUpperCase();
+  if (answer === questions[i][1].toUpperCase()) {
+    correct++;
+    right.push(questions[i][0]);
+  } else {
+    wrong.push(questions[i][0]);
+  }
+};
+
+document.getElementById("header").innerHTML = `You got ${correct} question(s) correct.`
+
+function summary(array, text) {
+for (let a = 0; a < array.length; a++) {
+    text += `<p> ${a+1}. ${array[a]} </p>`;
+  }
+  return text;
 }
 
-document.getElementById("paragraph").innerHTML = text;
+document.getElementById("paragraph").innerHTML = `
+  <h2> You got these questions CORRECT: </h2>
+  ${summary(right, rightText)}
+  <h2> You got these questions WRONG: </h2>
+  ${summary(wrong, wrongText)}
+`
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
