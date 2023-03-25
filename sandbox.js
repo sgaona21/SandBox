@@ -1,67 +1,70 @@
 console.log("JS Linked");
+/* 
 
-/* INSTRUCTIONS
-To run this file, click in the Console below and type: node 3_deck.js 
-If the console isn't visible, click the View menu above and choose Show Console.
+1) 	Write the code for function addNewTeachers() found on line 35. This function should receive parameter newTeachers, defined on line 52, and add the new teachers to the `teachers` variable. 
+ 
+2)	Find function printTreehouseSummary(). There is something you need to fix in this function so the console.log() on the final line of the function outputs the correct number of JavaScript courses and teachers.
+ 
+3)	At this point, attempt to run your code by typing node let_const.js in your workspace console and hitting enter. You should receive an error message when you do this. Use the clues in this error message to fix the program so it runs.
 
-You can clear the console by typing `clear` and pressing enter.
-
-If your program is stuck in an infinite loop, you can break out of the program by typing ctrl + C.
 */
 
-// Note: We've supplied you a basic function that takes an array of elements and shuffles their order in the array. It's a really useful, but somewhat complex algorithm -- look in the teacher's notes for links to an explanation for how it works. You'll use this function to shuffle a deck of cards that you'll create.
-function shuffle(arr) {
-  var j, x, i;
-  for (i = arr.length - 1; i > 0; i--) {
-      j = Math.floor(Math.random() * (i + 1));
-      x = arr[i];
-      arr[i] = arr[j];
-      arr[j] = x;
-  }
-  return arr;
+
+const teachers = [
+	{
+		name: 'Ashley',
+		topicArea: 'Javascript'
+	}
+];
+
+
+const courses = ['Introducing JavaScript',
+				'JavaScript Basics',
+				'JavaScript Loops, Arrays and Objects',
+				'Getting Started with ES2015',
+				'JavaScript and the DOM',
+				'DOM Scripting By Example'];
+			
+
+var i = courses.length;
+
+
+
+function addNewTeachers(newTeachers) {
+	// TODO: write a function that adds new teachers to the teachers array 
+  teachers.push(...newTeachers);
 }
 
-/* Complete the function createDeck(), which we've started for you below. The goal is to create a multi-dimensional array of 52 elements (52 cards), and return them shuffled when the function is called. To simplify creating the deck use two for loops -- one inside the other -- to build a multidimensional array.
-*/
-// 1. Add a for loop -- to loop through each element in the suites array
-// 2. INSIDE that loop, add another loop that loops through elements in the ranks array.
-// 3. Inside the second, nested loop, create a new array named card, which is composed of a rank and a suite. For example ['King', '♥︎'].
-// 4. Push that card onto the deck array. Once both loops complete running, the deck array will hold 52 elements, and each of those elements are themselves an array.
-// 5. Finally, pass the new deck to the shuffle() function, and return the results.
-var suites = ['♠︎','♣︎','♥︎','♦︎'];
-var ranks = ['Ace','King','Queen','Jack','10','9','8','7','6','5','4', '3','2'];
-var deck = [];
 
-function createSuite(suiteArray, ranksArray, index) {
-  let oneSuite = [];
-  for (let i = 0; i < ranksArray.length; i++) {
-    let card = [];
-    card.push(ranksArray[i], suiteArray[index])
-    oneSuite.push(card);
-  };
-  return oneSuite;
-};
-
-let spades = createSuite(suites, ranks, 0);
-let clubs = createSuite(suites, ranks, 1);
-let hearts = createSuite(suites, ranks, 2);
-let diamonds = createSuite(suites, ranks, 3);
-const completeDeck = [...spades, ...clubs, ...hearts, ...diamonds];
-const shuffledDeck = shuffle(completeDeck);
-let text = '';
-for (let i = 0; i < 2; i++) {
-  text += `<p> ${shuffledDeck[i][0]} ${shuffledDeck[i][1]} </p>`
+function printTreehouseSummary() {
+	// TODO: fix this function so that it prints the correct number of courses and   teachers 
+	
+  for (let i = 0; i < teachers.length; i++) {
+	 console.log(`${teachers[i].name} teaches ${teachers[i].topicArea}`);
+	}
+	
+  console.log(`Treehouse has ${i} JavaScript courses, and ${teachers.length} Javascript teachers`);
 }
-document.getElementById("header").innerHTML = text;
-console.log(shuffledDeck);
+
+
+
+let newTeachers = [
+	{
+		name: 'James',
+		topicArea: 'Javascript'
+	},
+	{
+		name: 'Treasure',
+		topicArea: 'Javascript'
+	}
+];
+
+addNewTeachers(newTeachers);
+printTreehouseSummary();
 
 
 
 
-// 6. Call the createDeck() function and store the results in a new variable named myDeck
 
-/* 7. Use a for loop to loop through the deck and list each card in the order the appear in the newly shuffled array. Use the log() method to print out a message like this, once for each card:
-"7 of ♥.︎"
-*/
 
-// Run your code by typing node 3_deck.js in the console below
+
