@@ -15,7 +15,9 @@ function randomColor() {
 const listItems = document.getElementsByTagName("li");
 const button = document.getElementById("button");
 const addButton = document.getElementById('add-button');
-let newItem = document.querySelector('.input-main')
+let newItem = document.querySelector('.input-main');
+const toDoList = document.querySelector('.to-do-list');
+const deleteButton = document.querySelector('.delete');
 
 function changeRed() {
     let color = randomColor();
@@ -27,13 +29,14 @@ function changeRed() {
 button.addEventListener("click", changeRed);
 
 addButton.addEventListener("click", () => {
-    console.log(newItem.value)
-    newItem.value = ''
+    let task = document.createElement("li");
+    task.textContent = newItem.value;
+    task.innerHTML += ` <button class="delete">Delete</button>`
+    toDoList.append(task)
+    newItem.value = '';
 })
 
-
-const paragraph = document.querySelector("p");
-
-
-
+deleteButton.addEventListener("click", () => {
+    console.log("hell")
+})
 
