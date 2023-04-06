@@ -14,6 +14,8 @@ function randomColor() {
 
 const listItems = document.getElementsByTagName("li");
 const button = document.getElementById("button");
+const addButton = document.getElementById('add-button');
+let newItem = document.querySelector('.input-main')
 
 function changeRed() {
     let color = randomColor();
@@ -24,9 +26,14 @@ function changeRed() {
 
 button.addEventListener("click", changeRed);
 
-const moreItems = document.querySelectorAll("li");
+addButton.addEventListener("click", () => {
+    console.log(newItem.value)
+    newItem.value = ''
+})
 
-console.log(moreItems[2])
+
+const paragraph = document.querySelector("p");
+
 
 
 
