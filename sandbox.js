@@ -12,31 +12,61 @@ function randomColor() {
   return textColor;
 }
 
+function changeRed() {
+    for (const v of listItems) {
+        v.style.color = randomColor();
+    }
+}
+
+//////////VARIABLES//////////
 const listItems = document.getElementsByTagName("li");
 const button = document.getElementById("button");
 const addButton = document.getElementById('add-button');
 let newItem = document.querySelector('.input-main');
-const toDoList = document.querySelector('.to-do-list');
-const deleteButton = document.querySelector('.delete');
-
-function changeRed() {
-    let color = randomColor();
-    for (const v of listItems) {
-        v.style.color = color;
-    }
-}
+const toDoList = document.querySelector('ul');
+const nodeArray = toDoList.children
+//////////VARIABLES//////////
 
 button.addEventListener("click", changeRed);
-
+let i = 0;
 addButton.addEventListener("click", () => {
-    let task = document.createElement("li");
-    task.textContent = newItem.value;
-    task.innerHTML += ` <button class="delete">Delete</button>`
-    toDoList.append(task)
+    toDoList.innerHTML += `<li>${newItem.value} <button id="${i}" class="delete-button"> Delete </button></li>`
     newItem.value = '';
+    i++;
+
+    const deleteButton = document.querySelector(".delete-button");
+    deleteButton.addEventListener("click", () => {
+        console.log("hey")
+
+    })
 })
 
-deleteButton.addEventListener("click", () => {
-    console.log("hell")
-})
+console.log(toDoList)
+
+let selector;
+window.onclick = e => {
+    console.log(e.target.id)
+    selector = e.target.id
+} 
+
+const newArray = [...nodeArray]
+newArray.splice(1, 1)
+console.log(nodeArray)
+console.log(newArray)
+
+
+
+
+
+
+const colors = ["red", "blue", "green"];
+colors.splice(2, 1);
+console.log(colors)
+console.log(selector)
+
+
+
+
+
+
 
