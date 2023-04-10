@@ -17,7 +17,7 @@ addButton.addEventListener("click", () => {
 toDoList.addEventListener("click", (e) => {
     let stageDeletion = e.target.id
     let targetedDeleteButton = document.getElementById(`${stageDeletion}`);
-    targetedDeleteButton.remove();
+    
 })
 
 
