@@ -1,39 +1,28 @@
 console.log("JS Linked");
 
+/////VARIABLES/////
+let userInput = document.getElementById("user-input")
 const main = document.getElementById("main");
 const section = document.getElementById("section");
 const paragraph = document.getElementById("nested-p");
-
 const unorderedList = document.querySelector("ul");
 const listItems = document.getElementsByTagName("li");
 const listItemsArray = [...listItems]
+const addButton = document.getElementById("add-button")
+let deleteButton = '';
+/////VARIABLES/////
 
 
-main.addEventListener("click", () => {
-    console.log("MAIN was clicked")
-});
+addButton.addEventListener("click", () => {
+    let newItem = document.createElement("li");
+    newItem.innerHTML = `${userInput.value} <button id="item-delete"> Delete </button>`
+    unorderedList.append(newItem)
 
-section.addEventListener("click", () => {
-    console.log("SECTION was clicked")
-});
+    deleteButton = document.getElementById("item-delete")
 
-paragraph.addEventListener("click", () => {
-    console.log("PARAGRAPH was clicked")
-});
-
-
-unorderedList.addEventListener("click", (event) => {
-    if (event.type === "click") {
-        console.log("its true yo")
-        event.target.style.display = "none"
-    }
+    userInput.value = ''
 })
 
-
-
-
-
-const numbers = ["one", "two", "three", "four", "five"];
 
 
 
