@@ -1,27 +1,52 @@
 console.log("JS Linked");
 
-//////////VARIABLES//////////
-const button = document.getElementById("button");
-const addButton = document.getElementById('add-button');
-let userInput = document.querySelector('.input-main');
-const toDoList = document.querySelector('ul');
-//////////VARIABLES//////////
+const main = document.getElementById("main");
+const section = document.getElementById("section");
+const paragraph = document.getElementById("nested-p");
 
-let i = 1;
-addButton.addEventListener("click", () => {
-    toDoList.innerHTML += `<li id="list-item-${i}">${userInput.value} <button id="delete-button-${i}">Delete</button> </li>`
-    userInput.value = '';
-    i++;
+const unorderedList = document.querySelector("ul");
+const listItems = document.getElementsByTagName("li");
+const listItemsArray = [...listItems]
+
+
+main.addEventListener("click", () => {
+    console.log("MAIN was clicked")
 });
 
-toDoList.addEventListener("click", (e) => {
-    let stageDeletion = e.target.id
-    let targetedDeleteButton = document.getElementById(`${stageDeletion}`);
-    
+section.addEventListener("click", () => {
+    console.log("SECTION was clicked")
+});
+
+paragraph.addEventListener("click", () => {
+    console.log("PARAGRAPH was clicked")
+});
+
+
+unorderedList.addEventListener("click", (event) => {
+    if (event.type === "click") {
+        console.log("its true yo")
+        event.target.style.display = "none"
+    }
 })
 
 
-//new code here 
+
+
+
+const numbers = ["one", "two", "three", "four", "five"];
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

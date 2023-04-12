@@ -5,3 +5,7 @@
 }
 
 
+#main, #section, #nested-p {
+    border: solid black 2px;
+    margin: 5px;
+}
