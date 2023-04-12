@@ -35,7 +35,6 @@ unorderedList.addEventListener("click", (event) => {
 
 const numbers = ["one", "two", "three", "four", "five"];
 
-//here is a change 
 
 
 
