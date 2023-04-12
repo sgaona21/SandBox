@@ -32,3 +32,27 @@ SPLICE FEATURE:
 const colors = ["red", "blue", "green"];
 colors.splice(2, 1);
 console.log(colors)
+
+
+
+
+to do list:
+
+addButton.addEventListener("click", () => {
+    let newItem = document.createElement("li");
+    newItem.innerHTML = userInput.value 
+    unorderedList.append(newItem);
+    let deleteButton = document.createElement("button");
+    deleteButton.innerHTML = " Delete"
+    deleteButton.className = "delete-button"
+    newItem.append(deleteButton)
+    userInput.value = '';
+});
+
+unorderedList.addEventListener("click", (event) => {
+    if (event.target.tagName === "BUTTON") {
+        let deleteButton = event.target;
+        let parent = deleteButton.parentNode;
+        parent.remove();
+    }
+})

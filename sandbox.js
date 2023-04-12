@@ -11,24 +11,29 @@ const listItemsArray = [...listItems]
 const addButton = document.getElementById("add-button")
 /////VARIABLES/////
 
-addButton.addEventListener("click", () => {
-    let newItem = document.createElement("li");
-    newItem.innerHTML = userInput.value 
-    unorderedList.append(newItem);
+userInput.addEventListener('keydown', (event) => {
+    if (event.key === "Enter") {
+    let newListItem  = document.createElement("li");
+    newListItem.innerHTML = userInput.value; 
+    unorderedList.append(newListItem);
+
     let deleteButton = document.createElement("button");
-    deleteButton.innerHTML = " Delete"
-    deleteButton.className = "delete-button"
-    newItem.append(deleteButton)
+    deleteButton.innerHTML = "Delete"; 
+    deleteButton.id = "delete-button"
+    newListItem.append(deleteButton);
+
     userInput.value = '';
+    }    
 });
 
+
 unorderedList.addEventListener("click", (event) => {
-    if (event.target.tagName === "BUTTON") {
-        let deleteButton = event.target;
-        let parent = deleteButton.parentNode;
-        parent.remove();
+    if (event.target.id === "delete-button") {
+        console.log(event.target.parentNode)
+        event.target.parentNode.remove();
     }
-})
+});
+
 
 
 
