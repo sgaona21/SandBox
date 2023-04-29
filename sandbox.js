@@ -11,6 +11,7 @@ const listItemsArray = [...listItems]
 const addButton = document.getElementById("add-button")
 /////VARIABLES/////
 
+
 let needle = 'issip';
 let haystack = 'mississippi';
 
