@@ -12,28 +12,27 @@ const addButton = document.getElementById("add-button")
 /////VARIABLES/////
 
 
-let needle = 'issip';
-let haystack = 'mississippi';
+let nums = [1,3,5,6];
+let target = 4;
 
-var strStr = function(haystack, needle) {
-    let tracker=0;
-        for (let i = 0; i < haystack.length; i++) {
-            if (haystack[i] === needle[tracker]) {
-                tracker++;    
-            } else if (!haystack[i] === needle[tracker]){ 
-                tracker--;
-                if (tracker < 0) {
-                    tracker = 0;
-                }
-              }
-            if (tracker === needle.length) {
-                return haystack.indexOf(needle)
-            }
+
+
+var searchInsert = function(nums, target) {
+    if (target < nums[0]) {
+        return 0;
+    }
+    if (target > nums[nums.length -1]) {
+        return nums.indexOf(nums[nums.length -1]) +1
+    }
+    for (let i = 0; i < nums.length; i++) {
+        if (target > nums[i] && target < nums[i + 1]) {
+            return nums.indexOf(nums[i+1])
         }
-        return -1
+    }
+    return nums.indexOf(target);    
 };
 
-console.log(strStr(haystack, needle))
+console.log(searchInsert(nums, target))
 
 
 
