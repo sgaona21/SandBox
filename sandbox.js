@@ -11,28 +11,64 @@ const listItemsArray = [...listItems]
 const addButton = document.getElementById("add-button")
 /////VARIABLES/////
 
-
-let nums = [1,3,5,6];
-let target = 4;
-
+let stringer = "  who in the world does that  "
+let tester = "hello"
 
 
-var searchInsert = function(nums, target) {
-    if (target < nums[0]) {
-        return 0;
+
+let reverseArray = []
+let outputString = '';
+console.log(stringer)
+for (let i = stringer.length -1; i <= stringer.length; i--) {
+    console.log(stringer[i])
+    reverseArray.push(stringer[i])
+    if (i === 0) {
+        break
     }
-    if (target > nums[nums.length -1]) {
-        return nums.indexOf(nums[nums.length -1]) +1
+}
+for (let a = 0; a < reverseArray.length; a++) {
+    outputString = outputString + reverseArray[a];
+}
+
+let present = 0;
+for (let t = 0; t < reverseArray.length; t++) {
+    if (reverseArray[t] === " ") {
+        reverseArray.shift();
     }
-    for (let i = 0; i < nums.length; i++) {
-        if (target > nums[i] && target < nums[i + 1]) {
-            return nums.indexOf(nums[i+1])
-        }
+    if (reverseArray[t] != " ") {
+        present++
     }
-    return nums.indexOf(target);    
+    if (present > 0) {
+        break
+    }
+    console.log(present)
+}
+
+let newString = '';
+for (let x = 0; x < outputString.length; x++) {
+    if (outputString[x] != ' ') {
+        newString = newString + outputString[x];
+    }
+}
+
+
+
+
+
+
+
+
+// console.log(removedSpacesString)
+console.log(newString)
+console.log(outputString)
+console.log(reverseArray)
+
+
+
+
+var lengthOfLastWord = function(s) {
+    
 };
-
-console.log(searchInsert(nums, target))
 
 
 
