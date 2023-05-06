@@ -11,60 +11,30 @@ const listItemsArray = [...listItems]
 const addButton = document.getElementById("add-button")
 /////VARIABLES/////
 
-let s = "  who is that  ";
-let s2 = "a";
-let s3 = "Hello";
-let s4 = "abc";
+const digits = [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3];
+console.log(BigInt(+digits.join('')))
 
-var lengthOfLastWord = function(s) {
-    console.log(s)
-    ///convert the string to a reversed array///
-    let stringToArray = [];
-    for (let a = s.length -1; a < s.length; a--) {
-        if (a === -1) {
-            break
-        }
-        stringToArray.push(s[a]);
-    }
-    console.log(stringToArray)
-
-    ///remove empty spaces from BEGINNING of array///
-        while (stringToArray[0] === ' ') {
-            stringToArray.shift();
-            if (stringToArray[0] != ' ') {
-            break;
-        }
-    }
-    console.log(stringToArray)
-
-    ///convert the array to string with ONE word///
-    let arrayToString = '';
-    for (let c = 0; c < stringToArray.length; c++) {
-        if (stringToArray[c] === ' ') {
-            break
-        }
-        arrayToString += stringToArray[c];
+var plusOne = function(digits) {
+    let arrayToString = ''
+    for (let x in digits) {
+        arrayToString += digits[x]
     }
     console.log(arrayToString)
-    console.log("indentation")
 
-    ///reverse the String///
-    let finalString = '';
-    for (let d = arrayToString.length -1; d < arrayToString.length; d--) {
-        if (d === -1) {
-            break
-        }
-        finalString += arrayToString[d];
+    let newNumber = BigInt(arrayToString)
+    console.log(newNumber);
+    console.log(BigInt(newNumber))
+    newNumber = newNumber + BigInt(1)
+    console.log(newNumber)
+    newNumber = newNumber.toString();
+    let finalArray = [];
+    for (let i = 0; i < newNumber.length; i++) {
+        finalArray.push(+newNumber[i]);
     }
-    console.log(finalString)
-
-    return finalString.length;
+    return finalArray
 };
 
-console.log(lengthOfLastWord(s4))
-
-
-
+console.log(plusOne(digits))
 
 
 
