@@ -11,30 +11,20 @@ const listItemsArray = [...listItems]
 const addButton = document.getElementById("add-button")
 /////VARIABLES/////
 
-const digits = [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3];
-console.log(BigInt(+digits.join('')))
+const a = '5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555';
+const b = 22222222222222222222222222222222222222222222222222222222222222222222;
 
-var plusOne = function(digits) {
-    let arrayToString = ''
-    for (let x in digits) {
-        arrayToString += digits[x]
-    }
-    console.log(arrayToString)
+console.log(a)
+console.log(Number(a));
+console.log(BigInt(a));
 
-    let newNumber = BigInt(arrayToString)
-    console.log(newNumber);
-    console.log(BigInt(newNumber))
-    newNumber = newNumber + BigInt(1)
-    console.log(newNumber)
-    newNumber = newNumber.toString();
-    let finalArray = [];
-    for (let i = 0; i < newNumber.length; i++) {
-        finalArray.push(+newNumber[i]);
-    }
-    return finalArray
+
+
+var addBinary = function(a, b) {
+
 };
 
-console.log(plusOne(digits))
+
 
 
 
