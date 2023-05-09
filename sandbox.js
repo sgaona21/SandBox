@@ -11,19 +11,14 @@ const listItemsArray = [...listItems]
 const addButton = document.getElementById("add-button")
 /////VARIABLES/////
 
-const a = '5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555';
-const b = 22222222222222222222222222222222222222222222222222222222222222222222;
-
-console.log(a)
-console.log(Number(a));
-console.log(BigInt(a));
+let a = true;
+let b = true;
 
 
 
-var addBinary = function(a, b) {
+let c = b ? "its true" : "its false";
 
-};
-
+console.log(c)
 
 
 
