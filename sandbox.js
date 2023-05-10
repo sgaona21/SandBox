@@ -16,7 +16,7 @@ let b = true;
 
 
 
-let c = b ? "its true" : "its false";
+let c = 0 ? 25 : 1000;
 
 console.log(c)
 
