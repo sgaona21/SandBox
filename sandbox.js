@@ -19,7 +19,8 @@ let b = true;
 let c = 0 ? 25 : 1000;
 
 console.log(c)
-
+console.log("hey dude its working")
+console.log("haha okay nice")
 
 
 
