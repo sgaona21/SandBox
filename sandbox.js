@@ -11,20 +11,4 @@ const listItemsArray = [...listItems]
 const addButton = document.getElementById("add-button")
 /////VARIABLES/////
 
-let a = true;
-let b = true;
-
-
-
-let c = 0 ? 25 : 1000;
-
-console.log(c)
-
-
-
-
-
-
-
-
-
+console.log("hello")
