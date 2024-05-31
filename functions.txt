@@ -55,3 +55,9 @@ unorderedList.addEventListener("click", (event) => {
         event.target.parentNode.remove();
     }
 });
+
+Aardvark
+Beaver
+Camel
+Donkey
+Eagle

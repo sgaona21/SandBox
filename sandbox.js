@@ -12,4 +12,6 @@ const addButton = document.getElementById("add-button")
 /////VARIABLES/////
 
 
-console.log("there you go")
+
+
+
