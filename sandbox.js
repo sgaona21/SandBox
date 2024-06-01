@@ -11,7 +11,7 @@ const listItemsArray = [...listItems]
 const addButton = document.getElementById("add-button")
 /////VARIABLES/////
 
-
+console.log("here we go")
 
 
 
